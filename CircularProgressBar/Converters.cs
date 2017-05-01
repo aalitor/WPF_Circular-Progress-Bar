@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Data;
 
-namespace Circular_Progress_Bar
+namespace CircularProgressBarApp
 {
     public class AngleToPointConverter : IMultiValueConverter
     {
@@ -24,7 +24,7 @@ namespace Circular_Progress_Bar
             throw new NotImplementedException();
         }
     }
-    class AngleToIsLargeConverter : IValueConverter
+    public class AngleToIsLargeConverter : IValueConverter
     {
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -39,7 +39,7 @@ namespace Circular_Progress_Bar
             throw new NotImplementedException();
         }
     }
-    class StrokeToStartPointConverter : IMultiValueConverter
+    public class StrokeToStartPointConverter : IMultiValueConverter
     {
 
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -54,7 +54,7 @@ namespace Circular_Progress_Bar
             throw new NotImplementedException();
         }
     }
-    class RadiusToSizeConverter : IMultiValueConverter
+    public class RadiusToSizeConverter : IMultiValueConverter
     {
 
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -69,7 +69,7 @@ namespace Circular_Progress_Bar
             throw new NotImplementedException();
         }
     }
-    class RadiusToCenterConverter : IValueConverter
+    public class RadiusToCenterConverter : IValueConverter
     {
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -83,7 +83,7 @@ namespace Circular_Progress_Bar
             throw new NotImplementedException();
         }
     }
-    class RadiusToDiameter : IValueConverter
+    public class RadiusToDiameter : IValueConverter
     {
 
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
@@ -97,7 +97,7 @@ namespace Circular_Progress_Bar
             throw new NotImplementedException();
         }
     }
-    class InnerRadiusConverter : IMultiValueConverter
+    public class InnerRadiusConverter : IMultiValueConverter
     {
 
         public object Convert(object[] values, Type targetType, object parameter, System.Globalization.CultureInfo culture)
