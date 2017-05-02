@@ -7,7 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Animation;
 
-namespace Circular_Progress_Bar
+namespace CircularProgressBarApp
 {
     public partial class CircularProgressBar : ProgressBar
     {
