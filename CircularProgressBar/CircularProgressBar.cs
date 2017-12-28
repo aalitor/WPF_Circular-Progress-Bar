@@ -5,11 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
 
 namespace CircularProgressBarApp
 {
-    public partial class CircularProgressBar : ProgressBar
+    public  class CircularProgressBar : ProgressBar
     {
         public CircularProgressBar()
         {
@@ -97,5 +98,44 @@ namespace CircularProgressBarApp
             DependencyProperty.Register("InnerRadius", typeof(double), typeof(CircularProgressBar), new PropertyMetadata(40.0));
 
 
+        public Brush Fill
+        {
+            get { return (Brush)GetValue(FillProperty); }
+            set { SetValue(FillProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for InnerRadius.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty FillProperty =
+            DependencyProperty.Register(nameof(Fill), typeof(Brush), typeof(CircularProgressBar), new PropertyMetadata(Brushes.Transparent));
+
+        public Brush Stroke
+        {
+            get { return (Brush)GetValue(StrokeProperty); }
+            set { SetValue(StrokeProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for InnerRadius.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty StrokeProperty =
+            DependencyProperty.Register(nameof(Stroke), typeof(Brush), typeof(CircularProgressBar), new PropertyMetadata(Brushes.LightGray));
+
+        public PenLineCap StrokeStartLineCap
+        {
+            get { return (PenLineCap)GetValue(StrokeStartLineCapProperty); }
+            set { SetValue(StrokeStartLineCapProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for InnerRadius.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty StrokeStartLineCapProperty =
+            DependencyProperty.Register(nameof(StrokeStartLineCap), typeof(PenLineCap), typeof(CircularProgressBar), new PropertyMetadata(PenLineCap.Flat));
+
+        public PenLineCap StrokeEndLineCap
+        {
+            get { return (PenLineCap)GetValue(StrokeEndLineCapProperty); }
+            set { SetValue(StrokeEndLineCapProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for InnerRadius.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty StrokeEndLineCapProperty =
+            DependencyProperty.Register(nameof(StrokeEndLineCap), typeof(PenLineCap), typeof(CircularProgressBar), new PropertyMetadata(PenLineCap.Round));
     }
 }
