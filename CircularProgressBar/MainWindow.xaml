@@ -23,13 +23,15 @@
         <Button Grid.Row="1" x:Name="btnStart" Content="Start" Command="{Binding StartCommand}" />
         <cpb:CircularProgressBar
             x:Name="cpb"
-            Grid.Row="2" StrokeThickness="15" Radius="100"
+            Grid.Row="2"
+            Thickness="15" Radius="100"
             Value="{Binding ProgressValue}"
             Style="{StaticResource CircularProgressBarStyle}"
             Background="GreenYellow"
             Fill="Transparent"
             Stroke="Blue"
-            StrokeEndLineCap="Triangle" />
+            StrokeThickness="3"
+            EndLineCap="Triangle" />
 
 
         <TextBlock Grid.Row="2"

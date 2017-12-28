@@ -10,10 +10,6 @@
     <my:InnerRadiusConverter x:Key="innerRadConverter" />
     <my:StrokeLineCapConverter x:Key="lineCapConverter" />
     <Style x:Key="CircularProgressBarStyle" TargetType="my:CircularProgressBar">
-        <Setter Property="Value" Value="50" />
-        <Setter Property="StrokeThickness" Value="10" />
-        <Setter Property="Radius" Value="40" />
-        <Setter Property="Background" Value="Green" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="my:CircularProgressBar">
@@ -22,7 +18,7 @@
                         Height="{Binding Path=Radius, Converter={StaticResource radtodia}, RelativeSource={RelativeSource AncestorType=ProgressBar}}">
                        
                         <Path Stroke="{TemplateBinding Stroke}" 
-                              StrokeThickness="1" 
+                              StrokeThickness="{TemplateBinding StrokeThickness}" 
                               Fill="{TemplateBinding Fill}">
                             <Path.Data>
                                 <EllipseGeometry
@@ -31,7 +27,7 @@
                                         <MultiBinding Converter="{StaticResource innerRadConverter}">
                                             <Binding Path="Radius"
                                                      RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}" />
-                                            <Binding Path="StrokeThickness"
+                                            <Binding Path="Thickness"
                                                      RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}" />
                                         </MultiBinding>
                                     </EllipseGeometry.RadiusX>
@@ -43,12 +39,12 @@
                         </Path>
 
                         <Path Stroke="{TemplateBinding Background}"
-                              StrokeThickness="{TemplateBinding StrokeThickness}">
+                              StrokeThickness="{TemplateBinding Thickness}">
                             <Path.StrokeStartLineCap>
                                 <MultiBinding Converter="{StaticResource lineCapConverter}">
                                     <Binding Path="Value"
                                              RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}"/>
-                                    <Binding Path="StrokeStartLineCap"
+                                    <Binding Path="StartLineCap"
                                              RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}"/>
                                 </MultiBinding>
                             </Path.StrokeStartLineCap>
@@ -56,7 +52,7 @@
                                 <MultiBinding Converter="{StaticResource lineCapConverter}">
                                     <Binding Path="Value"
                                              RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}"/>
-                                    <Binding Path="StrokeEndLineCap"
+                                    <Binding Path="EndLineCap"
                                              RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}"/>
                                 </MultiBinding>
                             </Path.StrokeEndLineCap>
@@ -67,7 +63,7 @@
                                             <MultiBinding Converter="{StaticResource spconverter}">
                                                 <Binding Path="Radius"
                                                          RelativeSource="{RelativeSource FindAncestor, AncestorType=ProgressBar}" />
-                                                <Binding Path="StrokeThickness"
+                                                <Binding Path="Thickness"
                                                          RelativeSource="{RelativeSource FindAncestor, AncestorType=ProgressBar}" />
                                             </MultiBinding>
                                         </PathFigure.StartPoint>
@@ -82,7 +78,7 @@
                                                              RelativeSource="{RelativeSource FindAncestor, AncestorType=ProgressBar}" />
                                                     <Binding Path="Radius"
                                                              RelativeSource="{RelativeSource FindAncestor, AncestorType=ProgressBar}" />
-                                                    <Binding Path="StrokeThickness"
+                                                    <Binding Path="Thickness"
                                                              RelativeSource="{RelativeSource FindAncestor, AncestorType=ProgressBar}" />
                                                 </MultiBinding>
                                             </ArcSegment.Point>
@@ -90,7 +86,7 @@
                                                 <MultiBinding Converter="{StaticResource sizeConverter}">
                                                     <Binding Path="Radius"
                                                              RelativeSource="{RelativeSource FindAncestor, AncestorType=ProgressBar}" />
-                                                    <Binding Path="StrokeThickness"
+                                                    <Binding Path="Thickness"
                                                              RelativeSource="{RelativeSource FindAncestor, AncestorType=ProgressBar}" />
                                                 </MultiBinding>
                                             </ArcSegment.Size>
