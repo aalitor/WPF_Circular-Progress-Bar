@@ -10,7 +10,7 @@ using System.Windows.Media.Animation;
 
 namespace CircularProgressBarApp
 {
-    public  class CircularProgressBar : ProgressBar
+    public class CircularProgressBar : ProgressBar
     {
         public CircularProgressBar()
         {
@@ -60,20 +60,6 @@ namespace CircularProgressBarApp
         // Using a DependencyProperty as the backing store for StrokeThickness.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty StrokeThicknessProperty =
             DependencyProperty.Register("StrokeThickness", typeof(double), typeof(CircularProgressBar), new PropertyMetadata(10.0));
-
-
-
-        public string Text
-        {
-            get { return (string)GetValue(TextProperty); }
-            set { SetValue(TextProperty, value); }
-        }
-
-        // Using a DependencyProperty as the backing store for Text.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty TextProperty =
-            DependencyProperty.Register("Text", typeof(string), typeof(CircularProgressBar), new PropertyMetadata("%0.00"));
-
-
 
         public double Radius
         {

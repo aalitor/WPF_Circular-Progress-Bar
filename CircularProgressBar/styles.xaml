@@ -43,9 +43,7 @@
                         </Path>
 
                         <Path Stroke="{TemplateBinding Background}"
-                              StrokeThickness="{TemplateBinding StrokeThickness}"
-                              >
-
+                              StrokeThickness="{TemplateBinding StrokeThickness}">
                             <Path.StrokeStartLineCap>
                                 <MultiBinding Converter="{StaticResource lineCapConverter}">
                                     <Binding Path="Value"
@@ -101,11 +99,6 @@
                                 </PathGeometry>
                             </Path.Data>
                         </Path>
-
-                        <TextBlock Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                                   Text="{Binding Path=Text, RelativeSource={RelativeSource TemplatedParent}}"
-                                   FontSize="{TemplateBinding FontSize}" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>
