@@ -29,6 +29,8 @@
                                                      RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}" />
                                             <Binding Path="Thickness"
                                                      RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}" />
+                                            <Binding Path="StrokeMode"
+                                                     RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=ProgressBar}" />
                                         </MultiBinding>
                                     </EllipseGeometry.RadiusX>
                                     <EllipseGeometry.RadiusY>

@@ -106,8 +106,18 @@ namespace CircularProgressBarApp
         {
             double radius = (double)values[0];
             double stroke = (double)values[1];
+            StrokeMode mode = (StrokeMode) values[2];
 
-            return radius - stroke;
+            switch (mode)
+            {
+                case StrokeMode.Inside:
+                    return radius - stroke;
+                case StrokeMode.Outside:
+                    return radius;
+                default:
+                    return radius - stroke / 2;
+            }
+            
         }
 
         public object[] ConvertBack(object value, Type[] targetType, object parameter, System.Globalization.CultureInfo culture)
