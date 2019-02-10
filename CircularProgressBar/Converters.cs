@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
+using System.Windows.Media;
 
 namespace CircularProgressBarApp
 {
@@ -104,11 +106,39 @@ namespace CircularProgressBarApp
         {
             double radius = (double)values[0];
             double stroke = (double)values[1];
+            StrokeMode mode = (StrokeMode) values[2];
 
-            return radius - stroke;
+            switch (mode)
+            {
+                case StrokeMode.Inside:
+                    return radius - stroke;
+                case StrokeMode.Outside:
+                    return radius;
+                default:
+                    return radius - stroke / 2;
+            }
+            
         }
 
         public object[] ConvertBack(object value, Type[] targetType, object parameter, System.Globalization.CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    public class StrokeLineCapConverter : IMultiValueConverter
+    {
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (values[0] is double progress && progress > 0)
+            {
+                PenLineCap cap = (PenLineCap) values[1];
+                return cap;
+            }
+            return PenLineCap.Flat;
+        }
+
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

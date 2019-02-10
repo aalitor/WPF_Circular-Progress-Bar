@@ -5,24 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:cpb="clr-namespace:CircularProgressBarApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="350" Width="525"
+        Background="Black">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="styles.xaml"/>
+                <ResourceDictionary Source="styles.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Button Grid.Row="1" x:Name="btnStart" Content="Start" Command="{Binding StartCommand}"/>
-        <cpb:CircularProgressBar Grid.Row="2" StrokeThickness="50" Radius="100"
-                                 Value="{Binding ProgressValue}" 
-                                 Text="{Binding ProgressText,Mode=OneWay}"
-                                 Style="{StaticResource CircularProgressBarStyle}"/>
+        <Button Grid.Row="1" x:Name="btnStart" Content="Start" Command="{Binding StartCommand}" />
+        <cpb:CircularProgressBar
+            x:Name="cpb"
+            Grid.Row="2"
+            Thickness="15" Radius="100"
+            Value="{Binding ProgressValue}"
+            Style="{StaticResource CircularProgressBarStyle}"
+            Background="GreenYellow"
+            Fill="Transparent"
+            Stroke="Blue"
+            StrokeThickness="3"
+            StrokeMode="Middle"
+            EndLineCap="Triangle" />
+
+
+        <TextBlock Grid.Row="2"
+                   Text="{Binding Path=Angle, ElementName=cpb, StringFormat={}{0:0}°}"
+                   FontSize="16"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Background="Transparent"
+                   Foreground="LightSkyBlue" />
     </Grid>
 </Window>
